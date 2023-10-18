@@ -1,9 +1,8 @@
 import random 
-archivo = open("Practicas 1\wordle.txt", "r")
+archivo = open("wordle.txt", "r")
 palabras =[]
 for x in archivo:
     palabras.append(x.rstrip())
-
 palabraElegida = palabras[random.randint(0,len(palabras))]
 intentos = 0 
 victoria = False
