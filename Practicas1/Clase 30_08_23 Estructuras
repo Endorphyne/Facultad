@@ -1,0 +1,82 @@
+#UNIDAD 3
+#Estructuras repetitivas y condicionales
+#1)Condicional IF
+#2)Repetitiva for
+#3)Repetitiva while
+#edad = int(input("Ingresa tu edad: "))
+#if edad <18 : 
+#   print("Eres menor de edad")
+#else:
+#   print("Eres mayor de edad")
+#======================================
+# edad = int(input("Ingresa tu edad: "))
+# if edad >= 0 and edad <= 12 : 
+#     print("Eres un niño")
+# elif edad <= 18 and edad >12 :
+#     print("Eres un adolescente")
+# else:
+#     print("Eres un adulto")
+#==========================================
+# numero = 0
+# while numero <10: 
+#     numero += 1
+#     if numero % 2 == 0 :
+#         print (numero)
+#==============================================
+# for x in range(1,11):
+#     if x %2 == 1 :
+#         continue
+#     print(x)
+#=============================================
+#continue= salta una iteracion de un bucle
+#break= Sale del bucle
+#pass= No hace nada :D
+#===============EJERCICIO=========================
+#Imprimr las siguietnes secuencias utilizando for,while o if:
+#1)Los primeros 5 numeros desde el 0
+#2)Los primeros 15 numeros desde el 15
+#3)Del 1 al 15, mostrando solo los pares
+#4)Del 2 al 12, mostrando solo los impares
+#5)Del 1 al 20, Mostrando solo los divisibles por 3 
+#6)Del 1 hasta un nuemro ingresado por teclado
+#7)Del 1 hasta un numero ingresado por teclado mostrando solo los pares
+#8)Ingresar dos años por teclado, calcular la diferencia entre ambos y si el primero o el segundo es mayor ´
+#9)Contar la cantidad de vocales y de consonantes en una cadena
+#10)imprimir todas las vocales de una frase ingresada por teclado, en mayusculas
+#11)Pedir al usuario su edad y comprobar si es o no mayor de edad. Forzar al usuario a que la edad ingresada se encuentre entre 0 y 100
+# for x in range(0,5):
+#         print('1)',x)
+# for x in range(15,30):
+#         print("2)",x)
+# for x in range(1,16):
+#     if x%2 == 0:
+#         print("3)",x)
+# for x in range(2,13):
+#     if x%2 != 0:
+#         print("4)",x)
+# for x in range(1,21):
+#     if x%3 == 0:
+#         print("5)",x)
+# for x in range(1,int(input("Ingrese un numero hasta el que escalar: "))+1):
+#         print("6)",x)
+# for x in range(1,int(input("Ingrese un numero para escalar mostrando los pares: "))+1):
+#     if x%2 == 0:
+#         print("7)",x)
+x=1
+while x != 0 :
+    print("Ingrese 2 años para calcular")
+    year1=int(input())
+    while year1 < 0 : 
+        print("Numero invalido, no ingrese valores negativos")
+        year1 = (int(input()))
+    year2=int(input())
+    while year2 < 0 : 
+        print("Numero invalido, no ingrese valores negativos")
+        year2 = (int(input()))
+    
+
+
+
+
+
+

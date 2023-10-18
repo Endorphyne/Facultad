@@ -1,0 +1,67 @@
+#1)pedir el nombre y el apellido al usuario (De forma separada) e imprimirlos en una cadena con un saludo; los valores ingresados se deben mostrar de manera capitalizada
+#2)Pedir al usuario que ingrese 2 numeros por separado. 
+#Mostrar en una cadena unica: 
+#La suma de ambos
+#La resta de ambos
+#La division de ambos
+#La multiplicacion de ambos
+#El valor doble del primer numero
+#el valor triple del segundo numero
+#3)Pedir al usuario que ingrese un numero e imprimir el tipo de dato del mismo
+#4)Pedir al usuario que ingrese una contraseña e imprimir si es segura segun su longitud:
+#Menos de 10 caracteres: Insegura
+#Entre 10 y 20 caracteres: Media
+#Mas de 20 caracteres: Segura
+#5)Pedir al usuario que ingrese 3 gustos de helado e imprimirlos en el orden inverso a lque fueron ingresados 
+#----------------------------------------------------------------------------------------------
+#PRIMER EJERCICIO 
+# nombre = input('Ingrese su nombre: ')
+# apellido = input('Ingrese su apellido: ')
+# print(f"Hola {nombre.upper()} {apellido.upper()}!")
+# #---------------------------------------------------------------------------------------------
+# #SEGUNDO EJERCICIO
+# num1 = int(input('Ingrese un numero: '))
+# num2 = int(input('Ingrese un numero: '))
+# while not num1 > 0 or not num2 > 0 :
+#     num1 = int(input('Ingrese un numero: '))
+#     num2 = int(input('Ingrese un numero: '))
+# if num1>num2:
+#     division = num1 / num2
+# else :
+#     division = num2 / num1 
+# print(f'''
+# En base a los numero ingresados
+# La suma de ambos es: {num1+num2}
+# La resta entre ambos es {num1-num2}
+# La multiplicacion entre ambos: {num1*num2}
+# La division entre ambos {division}
+# El valor doble del primer numero {num1*2}
+# EL valor triple del segundo numero {num2*3}''')
+# #----------------------------------------------------------------------------------------------
+# #TERCER EJERCICIO 
+# print(type(input("Ingrese un numero: ")))
+#------------------------------------------------------------------------------------------------
+#CUARTO EJERCICIO
+# password = input("Ingrese una contraseña para medir la seguridad: ")
+# seguridad = len(password)
+# if seguridad < 10 :
+#     seguridadLVL = "INSEGURA"
+# elif seguridad >= 10 and seguridad <= 20 :
+#     seguridadLVL = "MEDIANA"
+# else:
+#     seguridadLVL = "SEGURA"
+# print(f"Su contraseña es: {seguridadLVL}")
+#------------------------------------------------------------------------------------------------
+#QUINTO EJERCICIO
+gustos = []
+for x in range(3) : 
+    gustos.insert(x,input(f"Ingrese el gusto Nº {x+1} :"))
+gustos.sort(reverse=True)
+g1,g2,g3 = (gustos)
+print(f'''
+Los gustos son: {g1} {g2} {g3}''')
+# gusto1 = input('Ingrese el 1er sabor de helado: ')
+# gusto2 = input('Ingrese el 2do sabor de helado: ')
+# gusto3 = input('Ingrese el 3er sabor de helado: ')
+# print(f'''
+# Los gustos son:{gusto3} {gusto2} {gusto1}''')
