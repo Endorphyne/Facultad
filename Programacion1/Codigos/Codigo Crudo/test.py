@@ -1,7 +1,7 @@
-nombre = "Pepe Perez"
-edad = 25
+# nombre = "Pepe Perez"
+# edad = 25
 
-print(nombre, edad)
+# print(nombre, edad)
 
-for valor in [nombre, edad]:
-    print(valor)
+# for valor in [nombre, edad]:
+#     print(valor)

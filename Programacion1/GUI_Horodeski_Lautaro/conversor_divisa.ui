@@ -23,7 +23,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>290</y>
+      <y>120</y>
       <width>110</width>
       <height>28</height>
      </rect>
@@ -32,30 +32,12 @@
      <string>Convertir</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="conversion">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>110</width>
-      <height>50</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Dolares</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
+      <x>60</x>
       <y>180</y>
-      <width>110</width>
+      <width>280</width>
       <height>50</height>
      </rect>
     </property>
@@ -68,7 +50,7 @@
      <string>Pesos</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="cnt_dolares">
+   <widget class="QLineEdit" name="cnt_Base">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -81,7 +63,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLineEdit" name="cnt_Pesos">
+   <widget class="QLineEdit" name="cnt_Objetivo">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -98,7 +80,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>330</y>
+      <y>440</y>
       <width>331</width>
       <height>61</height>
      </rect>
@@ -111,7 +93,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>380</y>
+      <y>490</y>
       <width>321</width>
       <height>31</height>
      </rect>
@@ -127,7 +109,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>410</y>
+      <y>520</y>
       <width>491</width>
       <height>31</height>
      </rect>
@@ -138,7 +120,7 @@
      </font>
     </property>
     <property name="text">
-     <string>(consultela aqui: https://dolarhoy.com/cotizaciondolarblue) (El valor de venta) </string>
+     <string> (El valor de venta) (EJ cuantos pesos vale 1 dolar)</string>
     </property>
     <property name="openExternalLinks">
      <bool>true</bool>
@@ -150,10 +132,10 @@
    <widget class="QPushButton" name="fijar_taza">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>380</y>
+      <x>340</x>
+      <y>490</y>
       <width>110</width>
-      <height>28</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
@@ -163,8 +145,8 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>40</y>
+      <x>10</x>
+      <y>10</y>
       <width>150</width>
       <height>50</height>
      </rect>
@@ -178,39 +160,26 @@
      <string>Convirtiendo:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Eleccion_2">
+   <widget class="QLabel" name="moneda_default">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>240</y>
-      <width>110</width>
-      <height>28</height>
+      <x>150</x>
+      <y>30</y>
+      <width>310</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>PESOS</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="eleccion_1">
-    <property name="geometry">
-     <rect>
-      <x>440</x>
-      <y>240</y>
-      <width>110</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>DOLARES</string>
+     <string>N/A</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>130</y>
-      <width>271</width>
-      <height>101</height>
+      <x>10</x>
+      <y>180</y>
+      <width>110</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="font">
@@ -219,23 +188,101 @@
      </font>
     </property>
     <property name="text">
-     <string>Haga click en que moneda desea usar para convertir</string>
-    </property>
-    <property name="wordWrap">
-     <bool>true</bool>
+     <string>A:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="moneda_default">
+   <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>60</y>
-      <width>201</width>
-      <height>16</height>
+      <x>340</x>
+      <y>50</y>
+      <width>140</width>
+      <height>30</height>
      </rect>
     </property>
     <property name="text">
-     <string>N/A</string>
+     <string>Convertir:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>220</y>
+      <width>140</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Conversion:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="moneda_base">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>50</y>
+      <width>321</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="moneda_Objetivo">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>220</y>
+      <width>321</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="fijar_moneda">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>130</y>
+      <width>170</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Fijar moneda</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>260</y>
+      <width>230</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Monedas disponibles:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>300</y>
+      <width>541</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Dolares, Dolar Blue, Pesos, Euros.</string>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
@@ -245,7 +292,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>37</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

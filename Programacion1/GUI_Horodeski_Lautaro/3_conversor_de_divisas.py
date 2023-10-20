@@ -2,36 +2,41 @@ from PyQt6.QtWidgets import QApplication, QMainWindow
 from PyQt6.uic import loadUi
 app = QApplication([])
 main_window = QMainWindow()
-loadUi("conversor divisa.ui", main_window)
-def cargar_cambio():
-    tasa = float(main_window.tasa_cambio.text())
-    return tasa
-def cargar_valores():
-    pesos = float(main_window.cnt_Pesos.text())
-    dolares = float(main_window.cnt_Dolares.text())
-    return pesos,dolares
-def convertir_dinero(pesos,dolares,tasa,base = 1):
-    if base == 1: 
-        conversion = pesos / tasa 
-        main_window.cnt_Dolates.setText(conversion)
-    elif base == 2:
-        conversion = dolares * tasa
-        main_window.cnt_Pesos.setText(conversion)
-def eleccion_1():
-    return 1
-def eleccion_2():
-    return 2
-def moneda_default(condicion = 1):
-    if condicion == 1: 
-        main_window.moneda_Default.setText("Pesos")
-        main_window.cnt_Dolares.setText("0")
-        return 1
-    elif condicion == 2:
-        main_window.cnt_Pesos.setText("0")
-        main_window.moneda_Default.setText("Dolares")
-        return 2 
-main_window.eleccion_2.clicked.connect(lambda:moneda_default(eleccion_1()))
-main_window.eleccion_1.clicked.connect(lambda:moneda_default(eleccion_2()))
-main_window.convert_Btn.clicked.connect(lambda:convertir_dinero(cargar_valores(),cargar_cambio(),moneda_default()))
+loadUi("conversor_divisa.ui", main_window)
+def moneda_Base():
+    moneda = main_window.moneda_base.text()
+    moneda = moneda.lower()
+    if moneda == "pesos":
+        main_window.moneda_default.setText("Pesos")
+    elif moneda == "dolares":
+        main_window.moneda_default.setText("Dolares")
+    elif moneda == "euros":
+        main_window.moneda_default.setText("Euros")
+    else: 
+        main_window.moneda_default.setText("Moneda mal escrita o no disponible")
+def moneda_Objetivo():
+    moneda = main_window.moneda_Objetivo.text()
+    moneda = moneda.lower()
+    if moneda == "pesos":
+        main_window.conversion.setText("Pesos")
+    elif moneda == "dolares":
+        main_window.conversion.setText("Dolares")
+    elif moneda == "dolar blue":
+        main_window.conversion.setText("Dolar Blue")
+
+    elif moneda == "euros":
+        main_window.conversion.setText("Euros")
+    else: 
+        main_window.conversion.setText("Moneda mal escrita o no disponible")
+def taza():
+    cambio = int(main_window.tasa_cambio.text())
+    return cambio
+def conversion(taza = 1):
+    base = int(main_window.cnt_Base.text())
+    resultado = base * taza 
+    main_window.cnt_Objetivo.setText(str(resultado))
+main_window.fijar_moneda.clicked.connect(lambda:moneda_Base())
+main_window.fijar_moneda.clicked.connect(lambda:moneda_Objetivo())
+main_window.convert_Btn.clicked.connect(lambda:conversion(taza()))
 main_window.show()
 app.exec()
