@@ -16,7 +16,7 @@ def iniciar():
             if segundos == 60:
                 minutos += 1
                 segundos = 0 
-            elif minutos == 60 :
+            if minutos == 60 :
                 horas +=1 
                 minutos = 0 
             main_window.segundos.setText(str(segundos))
