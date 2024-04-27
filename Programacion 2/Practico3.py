@@ -15,3 +15,4 @@ for valor in socios.values():
     total += valor
 for x,y in socios.items() : 
     print(f"El socio {x.capitalize()}, aporto: ${y} lo que compone un %{round((y*100)/total,2)}")
+    
