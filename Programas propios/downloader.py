@@ -1,40 +1,28 @@
 from pytube import YouTube
-def descargarVideo(url,destino):
-    try:
-        print(f"Intentando descargar {url} en {destino}")
-        YouTube(url).streams.first().download(destino)
-    except:
-        print("Decarga Fallida")
-    print(f"Descarga Realizada en {destino}")
-def descargarAudio(url,destino):
-    try:
-        print(f"Intentando descargar {url} en {destino}")
-        YouTube(url).streams.filter(only_audio=True).first().download(destino)
-    except:
-        print("Decarga Fallida")
-    print(f"Descarga Realizada en {destino}")
-url = "FORMATO"
-destino = input("Ingrese la carpeta de destino: \n")
-while url.upper() != "SALIR" :
-    if url.upper() == "FORMATO":
-        try:
-            eleccion = input("Ingrese que formato desea descargar: \n 1: Video \n 2: Audio \n :")
-            eleccion == "1" or eleccion == "2"
-        except:
-            eleccion = input("Ingrese que formato desea descargar: \n 1: Video \n 2: Audio \n (VALOR INGRESADO INVALIDO)\n :")
-    if eleccion == "1":
-        try:
-            print("Ingrese la url del video o SALIR (Ingrese FORMATO para cambiar de formato): \n")
-            url = input()
-            url.upper() != "FORMATO"
-            descargarVideo(url,destino)
-        except:
-            print("Lero lero candelero")
-    elif eleccion == "2": 
-        try:
-            print("Ingrese la url del video o SALIR (Ingrese FORMATO para cambiar de formato): \n")
-            url = input()
-            url.upper() != "FORMATO"
-            descargarAudio(url,destino)
-        except:
-            print("Lero lero candelero")
+import os
+
+def descargar_video(url, carpeta_destino):
+    # Crea un objeto YouTube con la URL del video
+    youtube = YouTube(url)
+
+    # Descarga el video
+    video = youtube.streams.get_highest_resolution()
+    video.download(output_path=carpeta_destino)
+
+def descargar_audio(url, carpeta_destino):
+    # Crea un objeto YouTube con la URL del video
+    youtube = YouTube(url)
+
+    # Descarga el audio
+    audio = youtube.streams.get_audio_only()
+    audio.download(output_path=carpeta_destino)
+
+# URL del video de YouTube que quieres descargar
+url = input("Ingrese la URL")  # Reemplaza esto con la URL de tu video
+
+# Carpeta de destino donde quieres guardar el video y el audio
+carpeta_destino_video = os.path.join(os.getcwd(), "videos")  # Reemplaza esto con la ruta de tu carpeta de destino para el video
+carpeta_destino_audio = os.path.join(os.getcwd(), "audios")  # Reemplaza esto con la ruta de tu carpeta de destino para el audio
+
+descargar_video(url, carpeta_destino_video)
+descargar_audio(url, carpeta_destino_audio)

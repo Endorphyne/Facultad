@@ -1,0 +1,10 @@
+dicionario={
+    '1asdasdas':213,
+    '2asdadas':215763,
+    '3asddas':2413,
+    '4assdas':2131,
+    '5asdasdas':2133,
+    '6asdasd':2187903,
+    '7assdas':28913,
+}
+print(next(iter(dicionario.keys())))
