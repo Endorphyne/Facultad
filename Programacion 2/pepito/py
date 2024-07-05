@@ -1,0 +1,29 @@
+import math
+
+def calcular_area(opcion, medidas):
+    if opcion == 'cuadrado':
+        lado = medidas['lado']
+        area = lado * lado
+    elif opcion == 'circulo':
+        radio = medidas['radio']
+        area = math.pi * radio ** 2
+    elif opcion == 'rectangulo':
+        base = medidas['base']
+        altura = medidas['altura']
+        area = base * altura
+    return area
+
+figura = input("Ingrese la figura (cuadrado, círculo o rectángulo): ")
+medidas = {}
+if figura == 'cuadrado':
+    medidas['lado'] = float(input("Ingrese el lado del cuadrado: "))
+elif figura == 'circulo':
+    medidas['radio'] = float(input("Ingrese el radio del círculo: "))
+elif figura == 'rectangulo':
+    medidas['base'] = float(input("Ingrese la base del rectángulo: "))
+    medidas['altura'] = float(input("Ingrese la altura del rectángulo: "))
+else:
+    print("Opción inválida")
+
+area_calculada = calcular_area(figura, medidas)
+print(f"El área de la {figura} es: {area_calculada}")

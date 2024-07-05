@@ -1,0 +1,49 @@
+hoja_estilos = """
+QWidget 
+{
+    background-color: #C92108;
+}
+
+QWidget#Tab 
+{
+    background-color: #c904c6;
+    border-radius: 4px;
+}
+
+QWidget#Lateral 
+{
+    background-color: #EFD096;
+    border-radius: 4px;
+}
+
+QgroupBox{
+    background-color: #FCF9F3
+}
+
+QLabel 
+{
+    background-color: #EFD096;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: #EFD096;
+}
+
+QRadioButton 
+{
+    background-color: #FCF9F3;
+}
+
+QPushButton 
+{
+    border-radius: 4px;
+    padding: 6px;
+    color: #FFFFFF;
+}
+
+QPushButton:pressed 
+{
+    background-color: #C86354;
+    color: #DFD8D7;
+}
+"""

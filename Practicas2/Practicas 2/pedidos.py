@@ -1,12 +1,12 @@
 # Importacion
 import sys
+from pathlib import Path
+
 from PyQt5.QtWidgets import QApplication, QWidget, QTabWidget, QLabel, QRadioButton, QButtonGroup, QGroupBox, QPushButton, QVBoxLayout, QHBoxLayout, QGridLayout
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import Qt
 
 # TODO: Definir la hoja de estilos de la aplicacion
-hoja_estilos = """
-"""
 
 
 class Pedidos(QWidget):
@@ -85,7 +85,7 @@ class Pedidos(QWidget):
         lab_tab_pizza.setObjectName("Encabezado")
         caja_descripcion = QWidget()
         caja_descripcion.setObjectName("BordeImagen")
-        ruta_imagen_pizza = "img/pizza.png"
+        ruta_imagen_pizza = "C:/Users/ohoro/Documents/Facultad/Practicas2/Practicas 2/img/pizza.png"
         imagen_pizza = self.cargarImagen(ruta_imagen_pizza)
         descripcion_pizza = QLabel()
         descripcion_pizza.setObjectName("InfoImagen")
@@ -106,7 +106,7 @@ class Pedidos(QWidget):
         self.grupo_preparacion = QButtonGroup()
         layout_grupo_preparacion = QVBoxLayout()
         # TODO: definir los tipos de preparacion
-        lista_preparacion = []
+        lista_preparacion = ["A la piedra","Fino","Esponjoso"       ]
 
         # Usar un for para crear los RadioButton
         for lp in lista_preparacion:
@@ -124,7 +124,7 @@ class Pedidos(QWidget):
         self.grupo_rellenos = QButtonGroup()
         layout_grupo_rellenos = QVBoxLayout()
         # TODO: definir los tipos de rellenos disponibles
-        lista_rellenos = []
+        lista_rellenos = ["Queso mozzarella","Queso rickyfort","4.2 Quesos","Parmesano","Pepperoni","Carne","Pollo","Cebolla","Ajo","Oliva","Tomate","Espinaca"]
 
         # Usar un for para crear los RadioButton
         for lr in lista_rellenos:
@@ -136,7 +136,7 @@ class Pedidos(QWidget):
         caja_grupo_rellenos.setLayout(layout_grupo_rellenos)
 
         # Crear el boton que permita añadir a la orden
-        btn_agregar_orden = QPushButton("Agregar a la orden")
+        self.btn_agregar_ordenPi = QPushButton("Agregar a la orden")
 
         # Crear el layout para la pestaña de pizzas (pagina 1)
         caja_tab_pizza = QVBoxLayout()
@@ -145,7 +145,7 @@ class Pedidos(QWidget):
         caja_tab_pizza.addWidget(caja_grupo_preparacion)
         caja_tab_pizza.addWidget(caja_grupo_rellenos)
         caja_tab_pizza.addStretch()
-        caja_tab_pizza.addWidget(btn_agregar_orden, alignment=Qt.AlignRight)
+        caja_tab_pizza.addWidget(self.btn_agregar_ordenPi, alignment=Qt.AlignRight)
 
         self.tab_pizza.setLayout(caja_tab_pizza)
 
@@ -154,7 +154,7 @@ class Pedidos(QWidget):
         lab_tab_papas.setObjectName("Encabezado")
         caja_descripcion = QWidget()
         caja_descripcion.setObjectName("BordeImagen")
-        ruta_imagen_papas = "img/papas.png"
+        ruta_imagen_papas = "Practicas2\Practicas 2\img\papas.png"
         imagen_papas = self.cargarImagen(ruta_imagen_papas)
         descripcion_papas = QLabel()
         descripcion_papas.setObjectName("InfoImagen")
@@ -172,7 +172,7 @@ class Pedidos(QWidget):
         self.grupo_papas = QButtonGroup()
         layout_grupo_papas = QVBoxLayout()
         # TODO: definir los tipos de papas disponibles
-        lista_papas = []
+        lista_papas = ["Juliana","Francesa","Pure","Bastoncitos","Ausente"]
 
         # Usar un for para crear los RadioButton
         for lp in lista_papas:
@@ -183,41 +183,52 @@ class Pedidos(QWidget):
         caja_grupo_papas.setLayout(layout_grupo_papas)
 
         # Crear el boton que permita añadir a la orden
-        btn_agregar_orden = QPushButton("Agregar a la orden")
+        self.btn_agregar_ordenPa = QPushButton("Agregar a la orden")
 
         # Crear el layout para la pestaña de papas (pagina 2)
         caja_tab_papas = QVBoxLayout()
         caja_tab_papas.addWidget(lab_tab_papas)
         caja_tab_papas.addWidget(caja_descripcion)
         caja_tab_papas.addWidget(caja_grupo_papas)
-        caja_tab_papas.addWidget(btn_agregar_orden, alignment=Qt.AlignRight)
+        caja_tab_papas.addWidget(self.btn_agregar_ordenPa, alignment=Qt.AlignRight)
         caja_tab_papas.addStretch()
 
         self.tab_papas.setLayout(caja_tab_papas)
 
     def conectar(self):
         # TODO: conectar eventos
-        pass
+        self.btn_agregar_ordenPa.clicked.connect(self.mostrarPapasEnOrden)
+        self.btn_agregar_ordenPi.clicked.connect(self.mostrarPizzaEnOrden)
+
 
     def obtenerListaRellenos(self):
         # TODO: Crear una lista de todos los radio buttons seleccionados para rellenos
+        # rellenos_activos = [self.grupo_rellenos.checkedButton]
         pass
 
     def mostrarPizzaEnOrden(self):
         # TODO: Obtener los textos de las opciones seleccionadas y mostrar en la columna
-        pass
+        print("pizza")
 
     def mostrarPapasEnOrden(self):
         # TODO: Obtener los textos de las opciones seleccionadas y mostrar en la columna
-        pass
+        print("ausente")
 
     def cargarImagen(self, ruta_imagen):
         # TODO: Cargar y escalar una imagen
-        pass
+        try:
+            with open(ruta_imagen):
+                imagen = QLabel(self)
+                # imagen.objectName("Info_Imagen")
+                pixmap = QPixmap(ruta_imagen)
+                imagen.setPixmap(pixmap.scaled(imagen.size(),Qt.KeepAspectRatioByExpanding,Qt.SmoothTransformation))
+        except FileNotFoundError:
+            print("Imagen no encontrada")
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     # TODO: establecer estilos de la aplicacion
     ventana = Pedidos()
+    app.setStyleSheet(Path('pedidos.qss').read_text())
     sys.exit(app.exec_())
